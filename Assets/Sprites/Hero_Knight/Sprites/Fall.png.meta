@@ -1,30 +1,18 @@
 fileFormatVersion: 2
-guid: e81c2969ffed45c4ab942b7652711c23
+guid: daf241564a8049b4cac17e76b9bbfedb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7441861488978599509
-    second: Attack2_0
+      213: -5966621866309598838
+    second: Fall_0
   - first:
-      213: 8288915215451595207
-    second: Attack2_1
+      213: -2069157278089061004
+    second: Fall_1
   - first:
-      213: 4668938655123782945
-    second: Attack2_2
-  - first:
-      213: 5683539909772271658
-    second: Attack2_3
-  - first:
-      213: 5764228812365489207
-    second: Attack2_4
-  - first:
-      213: -1191510351576865934
-    second: Attack2_5
-  - first:
-      213: -8937499057154260928
-    second: Attack2_6
+      213: 6596617931644657277
+    second: Fall_2
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
@@ -44,6 +32,7 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -66,7 +55,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,9 +64,13 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -139,11 +132,23 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Attack2_0
+      name: Fall_0
       rect:
         serializedVersion: 2
         x: 0
@@ -157,14 +162,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af36e9d7ec4af2f499e91df235781e69
-      internalID: 7441861488978599509
+      spriteID: acc73217f281102468121b8ed98a5cde
+      internalID: -5966621866309598838
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack2_1
+      name: Fall_1
       rect:
         serializedVersion: 2
         x: 180
@@ -178,14 +183,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 382e4a5f044d86c48be9035e9cc6ca79
-      internalID: 8288915215451595207
+      spriteID: f1fb9f470ba1c1441aaf0da03601e32b
+      internalID: -2069157278089061004
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack2_2
+      name: Fall_2
       rect:
         serializedVersion: 2
         x: 360
@@ -199,92 +204,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16ea21fc4f22f7040968c5037740fbec
-      internalID: 4668938655123782945
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack2_3
-      rect:
-        serializedVersion: 2
-        x: 540
-        y: 0
-        width: 180
-        height: 180
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3f62465e6bb4ea3418331324996482c0
-      internalID: 5683539909772271658
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack2_4
-      rect:
-        serializedVersion: 2
-        x: 720
-        y: 0
-        width: 180
-        height: 180
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b10ab8ef0404a4d45b86d5757d6bd6cb
-      internalID: 5764228812365489207
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack2_5
-      rect:
-        serializedVersion: 2
-        x: 900
-        y: 0
-        width: 180
-        height: 180
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: daaf969628f047f45b332f0c58935b97
-      internalID: -1191510351576865934
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack2_6
-      rect:
-        serializedVersion: 2
-        x: 1080
-        y: 0
-        width: 180
-        height: 180
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 80ca1fe2e23efd140ad8a36918e4654b
-      internalID: -8937499057154260928
+      spriteID: 267f7e68aaf964b4cb370a5b8d4c8127
+      internalID: 6596617931644657277
       vertices: []
       indices: 
       edges: []
