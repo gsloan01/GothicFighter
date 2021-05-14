@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    private static GameController instance;
+    public static GameController Instance { get { return instance; } }
 
-    void Start()
+    public PlayerController player;
+
+    void Awake()
     {
         //Game controller should persist throughout the game
+        instance = this;
         DontDestroyOnLoad(this);
     }
 
