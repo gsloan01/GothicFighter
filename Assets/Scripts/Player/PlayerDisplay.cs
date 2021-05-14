@@ -14,14 +14,15 @@ public class PlayerDisplay : MonoBehaviour
     /// <summary>
     /// Flips the player's Sprite to face the opposite direction (left, right)
     /// </summary>
-    void FlipPlayer()
+    public void FlipPlayer()
     {
-        sr.flipY = !sr.flipX;
+        sr.flipX = !sr.flipX;
     }
 
-    void HurtColoration()
+    public void HurtColoration()
     {
         //Make the player flash a color
+        
         //could do this in an animation
     }
 }

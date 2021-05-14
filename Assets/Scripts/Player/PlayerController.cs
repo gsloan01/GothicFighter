@@ -22,7 +22,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        PlayerInput();
+        PlayerTest();
+        //PlayerInput();
     }
 
     void PlayerInput()
@@ -36,7 +37,6 @@ public class PlayerController : MonoBehaviour
         {
 
         }
-
         //checking jump
         if(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space ))
         {
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= time)
         {
-
+            pd.FlipPlayer();
             timer = 0;
         }
     }
@@ -69,6 +69,10 @@ public class PlayerController : MonoBehaviour
             //make them flash a color
             //lose health
             //if health is low enough set game state(?)
+    }
+    void OnAttack()
+    {
+
     }
 
 
