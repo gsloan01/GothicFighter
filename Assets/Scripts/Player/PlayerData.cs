@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerData", menuName = "Player/PlayerData", order = 1)]
 public class PlayerData : ScriptableObject
 {
-    int health;
-    int attackPower;
-    string playerName;
+    public string playerName;
+    public int health;
+    public int attackPower;
 }
