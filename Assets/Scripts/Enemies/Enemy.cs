@@ -5,16 +5,21 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float speed = 1.5f;
+    public float attackSpeed = 1.5f;
     public float range = 1;
-
+    public Animator animator;
     public Vector2 forward { get; set; } = Vector2.right;
 
     Rigidbody2D rb;
     bool inRange = false;
+    bool onGround = true;
+    float attackTimer;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        attackTimer = attackSpeed;
     }
 
     void Update()
@@ -24,9 +29,10 @@ public class Enemy : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
             inRange = true;
+            animator?.SetTrigger("InRange");
         }    
 
-        if (!inRange)
+        if (!inRange && onGround)
         {
             rb.velocity = forward * speed;
         }
@@ -38,6 +44,11 @@ public class Enemy : MonoBehaviour
 
     void Attack()
     {
-        GetComponent<SpriteRenderer>().color = Color.white;
+        attackTimer -= Time.deltaTime;
+        if (attackTimer <= 0)
+        {
+            animator?.SetTrigger("Attack");
+            attackTimer = attackSpeed;
+        }
     }
 }
