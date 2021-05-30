@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public bool onRight = false;
     public float speed = 1.5f;
     public float attackSpeed = 1.5f;
     public float range = 1;
+    public float knockbackDistance = 3;
     public Animator animator;
     public Vector2 forward { get; set; } = Vector2.right;
 
     Rigidbody2D rb;
     bool inRange = false;
     bool onGround = true;
+    bool isDead = false;
     float attackTimer;
+    float health = 1;
+    float deathTimer = 5;
 
     void Awake()
     {
@@ -24,21 +29,35 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        float distanceToPlayer = (transform.position - GameController.Instance.player.transform.position).magnitude;
-        if (distanceToPlayer <= range)
+        if (!isDead)
         {
-            rb.velocity = Vector2.zero;
-            inRange = true;
-            animator?.SetTrigger("InRange");
-        }    
+            float distanceToPlayer = (transform.position - GameController.Instance.player.transform.position).magnitude;
+            if (distanceToPlayer <= range)
+            {
+                rb.velocity = Vector2.zero;
+                inRange = true;
+            }    
+        
+            animator?.SetBool("InRange", inRange);
+            Debug.Log("inRange Bool: " + inRange);
+            Debug.Log("Animator: " + animator?.GetBool("InRange"));
 
-        if (!inRange && onGround)
-        {
-            rb.velocity = forward * speed;
+            if (!inRange && onGround)
+            {
+                rb.velocity = forward * speed;
+            }
+            else
+            {
+                Attack();
+            }
         }
         else
         {
-            Attack();
+            deathTimer -= Time.deltaTime;
+            if (deathTimer <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -49,6 +68,20 @@ public class Enemy : MonoBehaviour
         {
             animator?.SetTrigger("Attack");
             attackTimer = attackSpeed;
+            GameController.Instance.player.OnHurt();
+        }
+    }
+
+    public void onHit()
+    {
+        Vector3 knockback = Vector3.zero;
+        knockback.x += (onRight) ? knockbackDistance : -knockbackDistance;
+        transform.position += knockback;
+        health--;
+        if (health <= 0)
+        {
+            isDead = true;
+            animator?.SetTrigger("IsDead");
         }
     }
 }

@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// When the player gets hurt, this method is called
     /// </summary>
-    void OnHurt()
+    public void OnHurt()
     {
         //HURT ANIM
         //when the player gets hurt
