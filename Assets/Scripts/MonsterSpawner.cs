@@ -41,7 +41,7 @@ public class MonsterSpawner : MonoBehaviour
         //Add up the timer
         spawnTimer += Time.deltaTime;
         //If timer is ready to spawn another enemy
-        if(spawnTimer >= nextSpawnInterval)
+        if(spawnTimer >= nextSpawnInterval && !finished)
         {
             //Spawn
             SpawnEnemy();
@@ -57,6 +57,7 @@ public class MonsterSpawner : MonoBehaviour
         spawnTimer = 0;
         int enemyIndex = Random.Range(0, possibleEnemies.Count);
         //create new enemy
+
         Instantiate(possibleEnemies[enemyIndex], transform);
         enemiesLeft--;
     }

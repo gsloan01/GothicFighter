@@ -90,6 +90,7 @@ public class Enemy : MonoBehaviour
                 isDead = true;
                 animator?.SetTrigger("IsDead");
                 rb.velocity = Vector2.zero;
+                GameController.Instance.monstersKilled++;
             }
         }
     }
