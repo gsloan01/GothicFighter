@@ -8,7 +8,8 @@ public class Enemy : MonoBehaviour
     public float speed = 1.5f;
     public float attackSpeed = 1.5f;
     public float range = 1;
-    public float knockbackDistance = 3;
+    public float knockbackDistance = 0.000001f;
+    public float health = 1;
     public Animator animator;
     public Vector2 forward { get; set; } = Vector2.right;
 
@@ -17,7 +18,6 @@ public class Enemy : MonoBehaviour
     bool onGround = true;
     bool isDead = false;
     float attackTimer;
-    float health = 1;
     float deathTimer = 5;
 
     void Awake()
@@ -25,6 +25,11 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         attackTimer = attackSpeed;
+        if (onRight)
+        {
+            forward *= -1;
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
     }
 
     void Update()
@@ -74,14 +79,18 @@ public class Enemy : MonoBehaviour
 
     public void onHit()
     {
-        Vector3 knockback = Vector3.zero;
-        knockback.x += (onRight) ? knockbackDistance : -knockbackDistance;
-        transform.position += knockback;
-        health--;
-        if (health <= 0)
+        if (!isDead)
         {
-            isDead = true;
-            animator?.SetTrigger("IsDead");
+            Vector3 knockback = Vector3.zero;
+            //knockback.x += (onRight) ? knockbackDistance : -knockbackDistance;
+            transform.position += knockback;
+            health--;
+            if (health <= 0)
+            {
+                isDead = true;
+                animator?.SetTrigger("IsDead");
+                rb.velocity = Vector2.zero;
+            }
         }
     }
 }

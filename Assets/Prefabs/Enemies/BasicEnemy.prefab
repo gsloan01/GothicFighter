@@ -99,8 +99,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1.5}
+  m_Offset: {x: 0, y: -0.1}
+  m_Size: {x: 0.5, y: 1}
   m_Direction: 0
 --- !u!50 &5041553122251610844
 Rigidbody2D:
@@ -140,6 +140,7 @@ MonoBehaviour:
   attackSpeed: 4
   range: 1.2
   knockbackDistance: 3
+  health: 1
   animator: {fileID: 488874836}
 --- !u!95 &488874836
 Animator:
