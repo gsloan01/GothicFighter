@@ -127,7 +127,10 @@ public class PlayerController : MonoBehaviour
     void OnDeath()
     {
         //player death animation
-
+        if(GameController.Instance.gameState != GameController.eState.Win)
+        {
+            GameController.Instance.OnLoss();
+        }
         //do some restart menu stufffff
     }
 

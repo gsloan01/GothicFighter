@@ -11,6 +11,16 @@ public class SaveSelection : MonoBehaviour
 
     private void Start()
     {
+        UpdateSaves();
+    }
+
+    private void OnEnable()
+    {
+        UpdateSaves();
+    }
+
+    void UpdateSaves()
+    {
         for (int i = 0; i < playerNames.Length; i++)
         {
             playerNames[i].text = players[i].name;

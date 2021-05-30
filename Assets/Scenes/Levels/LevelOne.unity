@@ -2527,6 +2527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f895d403ad2954fa835b3d9391b252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveData: {fileID: 11400000, guid: 1a62534dc78852047b724dc9a6884048, type: 2}
   gameState: 0
   player: {fileID: 1452729733}
 --- !u!4 &1110730680

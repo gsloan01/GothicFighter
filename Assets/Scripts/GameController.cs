@@ -7,14 +7,17 @@ public class GameController : MonoBehaviour
 {
     private static GameController instance;
     public static GameController Instance { get { return instance; } }
+    public List<MonsterSpawner> spawners = new List<MonsterSpawner>();
+    int monstersKilled = 0;
+    public SaveData saveData;
 
     public enum eState
     {
         Playing, Lost, Win
     }
 
-    public IPanel winPanel;
-    public IPanel losePanel;
+    public GameObject winPanel;
+    public GameObject losePanel;
 
     public eState gameState;
 
@@ -25,6 +28,7 @@ public class GameController : MonoBehaviour
         //Game controller should persist throughout the game
         instance = this;
         DontDestroyOnLoad(this);
+        
     }
 
     // Update is called once per frame
@@ -33,6 +37,12 @@ public class GameController : MonoBehaviour
         switch (gameState)
         {
             case eState.Playing:
+                saveData.playerData.playtime += Time.deltaTime;
+                //if(monstersKilled == numOfMonsters)
+                //{
+                //      OnWin();
+                //}
+                
                 break;
             case eState.Lost:
                 break;
@@ -41,5 +51,20 @@ public class GameController : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public void OnLoss()
+    {
+        gameState = eState.Lost;
+        Time.timeScale = 0.01f;
+        losePanel.SetActive(true);
+    }
+
+    public void OnWin()
+    {
+        gameState = eState.Win;
+        Time.timeScale = 0.01f;
+        winPanel.SetActive(true);
+
     }
 }
