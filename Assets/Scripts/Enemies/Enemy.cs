@@ -8,7 +8,6 @@ public class Enemy : MonoBehaviour
     public float speed = 1.5f;
     public float attackSpeed = 1.5f;
     public float range = 1;
-    public float knockbackDistance = 0.000001f;
     public float health = 1;
     public Animator animator;
     public Vector2 forward { get; set; } = Vector2.right;
@@ -18,7 +17,8 @@ public class Enemy : MonoBehaviour
     bool onGround = true;
     bool isDead = false;
     float attackTimer;
-    float deathTimer = 5;
+    float deathTimer = 2.5f;
+    float knockbackDistance = 0.000001f;
 
     void Awake()
     {

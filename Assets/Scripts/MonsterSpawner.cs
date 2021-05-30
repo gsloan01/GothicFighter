@@ -55,7 +55,7 @@ public class MonsterSpawner : MonoBehaviour
     void SpawnEnemy()
     {
         spawnTimer = 0;
-        int enemyIndex = Random.Range(0, possibleEnemies.Count - 1);
+        int enemyIndex = Random.Range(0, possibleEnemies.Count);
         //create new enemy
         Instantiate(possibleEnemies[enemyIndex], transform);
         enemiesLeft--;
