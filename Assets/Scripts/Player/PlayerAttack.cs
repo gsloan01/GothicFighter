@@ -12,6 +12,7 @@ public class PlayerAttack : MonoBehaviour
         if(collision.gameObject.CompareTag("Enemy"))
         {
             //cast as enemy or monster
+            //collision.gameObject.GetComponent<Enemy>()
                 //remove health
                 //knock back a little?
 
