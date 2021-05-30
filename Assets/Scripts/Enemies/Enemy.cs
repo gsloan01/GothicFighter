@@ -39,8 +39,8 @@ public class Enemy : MonoBehaviour
             }    
         
             animator?.SetBool("InRange", inRange);
-            Debug.Log("inRange Bool: " + inRange);
-            Debug.Log("Animator: " + animator?.GetBool("InRange"));
+            //Debug.Log("inRange Bool: " + inRange);
+            //Debug.Log("Animator: " + animator?.GetBool("InRange"));
 
             if (!inRange && onGround)
             {

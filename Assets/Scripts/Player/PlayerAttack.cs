@@ -12,7 +12,8 @@ public class PlayerAttack : MonoBehaviour
         if(collision.gameObject.CompareTag("Enemy"))
         {
             //cast as enemy or monster
-            //collision.gameObject.GetComponent<Enemy>()
+            collision.gameObject.GetComponent<Enemy>().onHit();
+            Debug.Log("Enemy has been hit");
                 //remove health
                 //knock back a little?
 

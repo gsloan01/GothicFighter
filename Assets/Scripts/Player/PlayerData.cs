@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerData : ScriptableObject
 {
     public string playerName = "NEW PLAYER";
-    public float playtime = 0.0f;;
+    public float playtime = 0.0f;
     public int health = 5;
     public int attackPower = 1;
 }

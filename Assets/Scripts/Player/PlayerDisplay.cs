@@ -20,7 +20,7 @@ public class PlayerDisplay : MonoBehaviour
     }
     private void Update()
     {
-        OnHealthChangeUI();
+        //OnHealthChangeUI();
     }
     /// <summary>
     /// Flips the player's Sprite to face the opposite direction (left, right)

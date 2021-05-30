@@ -94,8 +94,7 @@ public class PlayerController : MonoBehaviour
         //when the player gets hurt
         invulnerableTimer += Time.deltaTime;
         if (invulnerableTimer > invulnTime) invulnerable = true; else { invulnerable = false; }
-        //make them flash a color
-        playerDisplay.OnHealthChangeUI();
+        //playerDisplay.OnHealthChangeUI();
         //lose health
         health--;
         //if health is low enough set game state(?)
