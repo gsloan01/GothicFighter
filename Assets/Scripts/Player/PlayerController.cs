@@ -12,12 +12,14 @@ public class PlayerController : MonoBehaviour
     PlayerData playerData;
     PlayerAttack currentAttack = null;
 
-    public int health;
+    public int health = 5;
 
     public float jumpForce = 1000f;
     public float invulnTime = 1;
     float invulnerableTimer;
 
+    public float attackTime = 0.1f;
+    float attackTimer = 0;
     eDirection facing = eDirection.Right;
     bool invulnerable = false;
     bool onGround = true;
@@ -42,6 +44,7 @@ public class PlayerController : MonoBehaviour
         //Check if player is on the ground
         if (rb.velocity.y != 0) onGround = false;
         else onGround = true;
+        
         PlayerInput();
     }
 
@@ -54,12 +57,23 @@ public class PlayerController : MonoBehaviour
 
     void PlayerInput()
     {
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            health--;
+            playerDisplay.OnHealthChangeUI();
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            health++;
+            playerDisplay.OnHealthChangeUI();
+        }
+        attackTimer += Time.deltaTime;
         //checks if pressing left / right (can only do one or the other)
-        if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) && attackTimer >= attackTime)
         {
             OnAttack(eDirection.Left);
         }
-        else if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        else if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) && attackTimer >= attackTime)
         {
             OnAttack(eDirection.Right);
         }
@@ -75,12 +89,13 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void OnHurt()
     {
+        if (invulnerable) return;
         //HURT ANIM
         //when the player gets hurt
         invulnerableTimer += Time.deltaTime;
         if (invulnerableTimer > invulnTime) invulnerable = true; else { invulnerable = false; }
         //make them flash a color
-        
+        playerDisplay.OnHealthChangeUI();
         //lose health
         health--;
         //if health is low enough set game state(?)
@@ -91,6 +106,7 @@ public class PlayerController : MonoBehaviour
     }
     void OnAttack(eDirection direction)
     {
+        attackTimer = 0;
         if (currentAttack != null) Destroy(currentAttack);
         if (direction != facing) playerDisplay.FlipPlayer(); facing = direction;
         float xOffset = (facing == eDirection.Right) ? 1.5f : -1.5f;
@@ -118,7 +134,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("EnemyAttack"))
+        if(collision.gameObject.CompareTag("EnemyAttack") && !invulnerable)
         {
             OnHurt();
         }
